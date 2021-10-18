@@ -1,6 +1,6 @@
 # OOP School Library
 
-Script in Ruby to store Students, teachers and books
+Ruby capston project
 
 ## Built With
 
@@ -13,7 +13,7 @@ Script in Ruby to store Students, teachers and books
 1. Clone the repo
 
    ```sh 
-   git@github.com:hunter4466/OOP_school_library.git
+   git@github.com:smunozmo/ruby-group-capstone.git
    ```
 
 ### Usage
@@ -38,18 +38,12 @@ Script in Ruby to store Students, teachers and books
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/mario-chois-5a13b6b6/)
 - Angelist: [@angelist](https://angel.co/u/mario-chois)
 
-👤 **Leonardo Dias**
-
-- GitHub: [@leonardodiasb](https://github.com/leonardodiasb)
-- Twitter: [@BussularDias](https://twitter.com/BussularDias)
-- LinkedIn: [Leonardo Dias Bussular](https://www.linkedin.com/in/leonardo-dias-bussular-a67392178/)
-
 
 ## 🤝 Contributing
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](https://github.com/hunter4466/OOP_school_library/issues).
+Feel free to check the [issues page](https://github.com/smunozmo/ruby-group-capston/issues).
 
 ## Show your support
 
