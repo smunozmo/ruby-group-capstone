@@ -1,10 +1,13 @@
 require_relative './item'
 require_relative './create_book'
 require_relative './create_movie'
+require_relative './create_game'
 require_relative './list_books'
 require_relative './list_labels'
 require_relative './list_movies'
 require_relative './list_sources'
+require_relative './list_games'
+require_relative './list_authors'
 require_relative './initialize_books'
 require_relative './initialize_movies'
 require 'json'
@@ -69,13 +72,13 @@ def main
     when '3'
       list_movies(@movies)
     when '4'
-      '4'
+      list_games(@games)
     when '5'
       '5'
     when '6'
       list_labels(@all_labels)
     when '7'
-      '7'
+      list_authors(@all_authors)
     when '8'
       list_sources(@all_sources)
     when '9'
@@ -85,10 +88,11 @@ def main
     when '11'
       create_movie(@movies, @all_genres, @all_authors, @all_labels, @all_sources)
     when '12'
-      '12'
+      create_game(@games, @all_genres, @all_authors, @all_labels, @all_sources)
     when '13'
       File.write('./books.json', JSON.dump(@books))
       File.write('./movies.json', JSON.dump(@movies))
+      File.write('./games.json', JSON.dump(@games))
       puts 'Thanks for using this app'
     else
       puts 'This option is not available'
