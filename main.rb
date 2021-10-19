@@ -1,8 +1,12 @@
 require_relative './item'
 require_relative './create_book'
+require_relative './create_movie'
 require_relative './list_books'
 require_relative './list_labels'
+require_relative './list_movies'
+require_relative './list_sources'
 require_relative './initialize_books'
+require_relative './initialize_movies'
 require 'json'
 
 puts
@@ -19,14 +23,22 @@ def main
     books_file = File.read('./books.json')
     @books = JSON.parse(books_file)
   end
+  begin
+    movies_file = File.read('./movies.json')
+    @movies = JSON.parse(movies_file)
+  rescue StandardError
+    File.write('./movies.json', JSON.dump([]))
+    movies_file = File.read('./movies.json')
+    @movies = JSON.parse(movies_file)
+  end
   @musicalbums = []
-  @movies = []
   @games = []
   @all_genres = {}
   @all_authors = {}
   @all_labels = {}
   @all_sources = {}
   initialize_books(@books, @all_genres, @all_authors, @all_labels, @all_sources)
+  initialize_movies(@movies, @all_genres, @all_authors, @all_labels, @all_sources)
   input = ''
 
   while input.to_i != 13
@@ -55,7 +67,7 @@ def main
     when '2'
       '2'
     when '3'
-      '3'
+      list_movies(@movies)
     when '4'
       '4'
     when '5'
@@ -65,17 +77,18 @@ def main
     when '7'
       '7'
     when '8'
-      '8'
+      list_sources(@all_sources)
     when '9'
       create_book(@books, @all_genres, @all_authors, @all_labels, @all_sources)
     when '10'
       '10'
     when '11'
-      '11'
+      create_movie(@movies, @all_genres, @all_authors, @all_labels, @all_sources)
     when '12'
       '12'
     when '13'
       File.write('./books.json', JSON.dump(@books))
+      File.write('./movies.json', JSON.dump(@movies))
       puts 'Thanks for using this app'
     else
       puts 'This option is not available'
