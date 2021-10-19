@@ -4,7 +4,6 @@ require_relative './genre'
 require_relative './music_album'
 require_relative '../author'
 
-
 def create_music_album(_music_album, _all_genres, _all_authors, _all_labels, _all_sources)
   # Label
   print 'Label title (e.g. new or gift): '
