@@ -39,8 +39,7 @@ def main
     music_album_file = File.read('./music_album.json')
     @music_album = JSON.parse(music_album_file)
   end
-  @movies = []
-  @games = []
+  begin
     movies_file = File.read('./movies.json')
     @movies = JSON.parse(movies_file)
   rescue StandardError
@@ -56,7 +55,6 @@ def main
     games_file = File.read('./games.json')
     @games = JSON.parse(games_file)
   end
-  @musicalbums = []
   @all_genres = {}
   @all_authors = {}
   @all_labels = {}
