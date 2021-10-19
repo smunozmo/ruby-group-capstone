@@ -9,6 +9,10 @@ require_relative './list_sources'
 require_relative './list_games'
 require_relative './list_authors'
 require_relative './initialize_books'
+require_relative './music-genre/create_music_album'
+require_relative './music-genre/initialize_music_albums'
+require_relative './music-genre/list_music_albums'
+require_relative './music-genre/list_genres'
 require_relative './initialize_movies'
 require_relative './initialize_games'
 require 'json'
@@ -28,6 +32,15 @@ def main
     @books = JSON.parse(books_file)
   end
   begin
+    music_album_file = File.read('./music_album.json')
+    @music_album = JSON.parse(music_album_file)
+  rescue StandardError
+    File.write('./music_album.json', JSON.dump([]))
+    music_album_file = File.read('./music_album.json')
+    @music_album = JSON.parse(music_album_file)
+  end
+  @movies = []
+  @games = []
     movies_file = File.read('./movies.json')
     @movies = JSON.parse(movies_file)
   rescue StandardError
@@ -49,6 +62,7 @@ def main
   @all_labels = {}
   @all_sources = {}
   initialize_books(@books, @all_genres, @all_authors, @all_labels, @all_sources)
+  initialize_music_albums(@music_album, @all_genres, @all_authors, @all_labels, @all_sources)
   initialize_movies(@movies, @all_genres, @all_authors, @all_labels, @all_sources)
   initialize_games(@games, @all_genres, @all_authors, @all_labels, @all_sources)
   input = ''
@@ -77,13 +91,13 @@ def main
     when '1'
       list_books(@books)
     when '2'
-      '2'
+      list_music_album(@music_album)
     when '3'
       list_movies(@movies)
     when '4'
       list_games(@games)
     when '5'
-      '5'
+      list_genres(@all_genres)
     when '6'
       list_labels(@all_labels)
     when '7'
@@ -93,13 +107,14 @@ def main
     when '9'
       create_book(@books, @all_genres, @all_authors, @all_labels, @all_sources)
     when '10'
-      '10'
+      create_music_album(@music_album, @all_genres, @all_authors, @all_labels, @all_sources)
     when '11'
       create_movie(@movies, @all_genres, @all_authors, @all_labels, @all_sources)
     when '12'
       create_game(@games, @all_genres, @all_authors, @all_labels, @all_sources)
     when '13'
       File.write('./books.json', JSON.dump(@books))
+      File.write('./music_album.json', JSON.dump(@music_album))
       File.write('./movies.json', JSON.dump(@movies))
       File.write('./games.json', JSON.dump(@games))
       puts 'Thanks for using this app'
