@@ -10,6 +10,7 @@ require_relative './list_games'
 require_relative './list_authors'
 require_relative './initialize_books'
 require_relative './initialize_movies'
+require_relative './initialize_games'
 require 'json'
 
 puts
@@ -34,14 +35,22 @@ def main
     movies_file = File.read('./movies.json')
     @movies = JSON.parse(movies_file)
   end
+  begin
+    games_file = File.read('./games.json')
+    @games = JSON.parse(games_file)
+  rescue StandardError
+    File.write('./games.json', JSON.dump([]))
+    games_file = File.read('./games.json')
+    @games = JSON.parse(games_file)
+  end
   @musicalbums = []
-  @games = []
   @all_genres = {}
   @all_authors = {}
   @all_labels = {}
   @all_sources = {}
   initialize_books(@books, @all_genres, @all_authors, @all_labels, @all_sources)
   initialize_movies(@movies, @all_genres, @all_authors, @all_labels, @all_sources)
+  initialize_games(@games, @all_genres, @all_authors, @all_labels, @all_sources)
   input = ''
 
   while input.to_i != 13
