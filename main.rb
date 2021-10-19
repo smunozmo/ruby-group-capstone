@@ -8,6 +8,8 @@ require 'json'
 puts
 puts 'Welcome to Catalog App!'
 
+# rubocop:disable Metrics/CyclomaticComplexity
+# rubocop:disable Metrics/MethodLength
 def main
   begin
     books_file = File.read('./books.json')
@@ -80,5 +82,7 @@ def main
     end
   end
 end
+# rubocop:enable Metrics/MethodLength
+# rubocop:enable Metrics/CyclomaticComplexity
 
 main
