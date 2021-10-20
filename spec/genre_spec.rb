@@ -1,5 +1,5 @@
-require_relative '../music-genre/music_album'
-require_relative '../music-genre/genre'
+require_relative '../classes/music_album'
+require_relative '../classes/genre'
 
 describe Genre do
   context 'when use add_item method' do

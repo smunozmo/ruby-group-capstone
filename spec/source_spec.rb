@@ -1,5 +1,5 @@
-require_relative '../source'
-require_relative '../movie'
+require_relative '../classes/source'
+require_relative '../classes/movie'
 
 describe Source do
   context 'Source tests' do

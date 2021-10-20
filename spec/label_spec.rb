@@ -1,5 +1,5 @@
-require_relative '../label'
-require_relative '../book'
+require_relative '../classes/label'
+require_relative '../classes/book'
 
 describe Label do
   context 'when use add_item method' do
@@ -16,6 +16,8 @@ describe Label do
       new_label.add_item(new_book)
 
       expect(new_label.items.length).to eq(1)
+      expect(new_label.items[0].label.title).to eq('hunger games')
+      expect(new_label.items[0].label.color).to eq('yellow')
     end
   end
 end

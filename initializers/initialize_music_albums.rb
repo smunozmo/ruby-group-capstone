@@ -1,4 +1,4 @@
-def initialize_music_albums(_music_album, _all_genres, _all_authors, _all_labels, _all_sources)
+def initialize_music_albums()
   @music_album.each do |b|
     @all_labels["#{b['label_title'].downcase}_#{b['label_color'].downcase}"] = Label.new(b['label_title'].downcase, b['label_color'].downcase) if @all_labels["#{b['label_title'].downcase}_#{b['label_color'].downcase}"].nil?
     @all_genres[b['genre_name']] = Genre.new(b['genre_name']) if @all_genres[b['genre_name']].nil?

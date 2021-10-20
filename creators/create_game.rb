@@ -1,11 +1,4 @@
-require_relative './source'
-require_relative './label'
-require_relative './author'
-require_relative './game'
-
-def create_game(_games, _all_genres, _all_authors, _all_labels, _all_sources)
-  # option_header('Add a game')
-
+def create_game()
   # Label
   print 'Label title (e.g. new or gift): '
   game_label_title = gets.chomp

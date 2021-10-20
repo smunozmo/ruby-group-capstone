@@ -1,4 +1,4 @@
-require_relative '../music-genre/music_album'
+require_relative '../classes/music_album'
 
 describe MusicAlbum do
   context 'when add an album with on_spotify' do

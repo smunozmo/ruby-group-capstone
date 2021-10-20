@@ -1,10 +1,4 @@
-require_relative '../label'
-require_relative '../book'
-require_relative './genre'
-require_relative './music_album'
-require_relative '../author'
-
-def create_music_album(_music_album, _all_genres, _all_authors, _all_labels, _all_sources)
+def create_music_album()
   # Label
   print 'Label title (e.g. new or gift): '
   music_album_label_title = gets.chomp
@@ -28,15 +22,17 @@ def create_music_album(_music_album, _all_genres, _all_authors, _all_labels, _al
   # Music Album Data
   print 'Publish date (Format: YYYY-MM-DD): '
   music_album_publish_date = gets.chomp
-  print 'On Spotify (True or False): '
+  print 'On Spotify (yes or no): '
   music_album_on_spotify = gets.chomp
+  music_album_on_spotify_boolean = true
+  !music_album_on_spotify_boolean if music_album_on_spotify.downcase == 'no'
 
   @all_labels["#{music_album_label_title.downcase}_#{music_album_label_color.downcase}"] = Label.new(music_album_label_title.downcase, music_album_label_color.downcase) if @all_labels["#{music_album_label_title.downcase}_#{music_album_label_color.downcase}"].nil?
   @all_genres[music_album_genre] = Genre.new(music_album_genre)
   @all_authors["#{author_first_name.downcase}_#{author_last_name.downcase}"] = Author.new(author_first_name, author_last_name)
   @all_sources[music_album_source] = Source.new(music_album_source)
 
-  new_music_album = MusicAlbum.new(music_album_publish_date, music_album_on_spotify)
+  new_music_album = MusicAlbum.new(music_album_publish_date, music_album_on_spotify_boolean)
   new_music_album.genre = @all_genres[music_album_genre]
   new_music_album.source = @all_sources[music_album_source]
   new_music_album.label = @all_labels["#{music_album_label_title.downcase}_#{music_album_label_color.downcase}"]
