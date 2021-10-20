@@ -67,10 +67,10 @@ def main
   @all_authors = {}
   @all_labels = {}
   @all_sources = {}
-  initialize_books()
-  initialize_music_albums()
-  initialize_movies()
-  initialize_games()
+  initialize_books
+  initialize_music_albums
+  initialize_movies
+  initialize_games
   input = ''
 
   while input.to_i != 13
@@ -111,13 +111,13 @@ def main
     when '8'
       list_sources(@all_sources)
     when '9'
-      create_book()
+      create_book
     when '10'
-      create_music_album()
+      create_music_album
     when '11'
-      create_movie()
+      create_movie
     when '12'
-      create_game()
+      create_game
     when '13'
       File.write('./data/books.json', JSON.dump(@books))
       File.write('./data/music_album.json', JSON.dump(@music_album))
