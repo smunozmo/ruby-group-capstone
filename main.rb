@@ -24,6 +24,7 @@ require_relative './classes/game'
 require_relative './classes/movie'
 require_relative './classes/music_album'
 require 'json'
+require 'io/console'
 
 puts
 puts 'Welcome to Catalog App!'
@@ -126,6 +127,10 @@ def main
       puts 'Thanks for using this app'
     else
       puts 'This option is not available'
+    end
+    if input.to_i >= 1 && input.to_i <= 8
+      puts "Press any key to contine..."
+      STDIN.getch
     end
   end
 end
