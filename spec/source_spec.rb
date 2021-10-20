@@ -23,7 +23,7 @@ describe Source do
       expect(new_source).to be_an_instance_of(Source)
     end
 
-    it 'Creates a Movie class instance' do
+    it 'New instance is not empty' do
       movie_source = 'Gift'
       new_source = Source.new(movie_source)
 
