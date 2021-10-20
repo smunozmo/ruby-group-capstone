@@ -1,4 +1,4 @@
-def initialize_books(_books, _all_genres, _all_authors, _all_labels, _all_sources)
+def initialize_books()
   @books.each do |b|
     @all_labels["#{b['label_title'].downcase}_#{b['label_color'].downcase}"] = Label.new(b['label_title'].downcase, b['label_color'].downcase) if @all_labels["#{b['label_title'].downcase}_#{b['label_color'].downcase}"].nil?
     @all_sources[b['source_name']] = Source.new(b['source_name']) if @all_sources[b['source_name']].nil?

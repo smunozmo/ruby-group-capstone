@@ -1,8 +1,4 @@
-require_relative './label'
-require_relative './book'
-
-def create_book(_books, _all_genres, _all_authors, _all_labels, _all_sources)
-
+def create_book()
   # Label
   print 'Label title (e.g. new or gift): '
   book_label_title = gets.chomp

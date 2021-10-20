@@ -1,20 +1,28 @@
-require_relative './item'
-require_relative './create_book'
-require_relative './create_movie'
-require_relative './create_game'
-require_relative './list_books'
-require_relative './list_labels'
-require_relative './list_movies'
-require_relative './list_sources'
-require_relative './list_games'
-require_relative './list_authors'
-require_relative './initialize_books'
-require_relative './music-genre/create_music_album'
-require_relative './music-genre/initialize_music_albums'
-require_relative './music-genre/list_music_albums'
-require_relative './music-genre/list_genres'
-require_relative './initialize_movies'
-require_relative './initialize_games'
+require_relative './classes/item'
+require_relative './creators/create_book'
+require_relative './creators/create_movie'
+require_relative './creators/create_game'
+require_relative './creators/create_music_album'
+require_relative './listings/list_books'
+require_relative './listings/list_labels'
+require_relative './listings/list_movies'
+require_relative './listings/list_sources'
+require_relative './listings/list_games'
+require_relative './listings/list_authors'
+require_relative './listings/list_music_albums'
+require_relative './listings/list_genres'
+require_relative './initializers/initialize_books'
+require_relative './initializers/initialize_movies'
+require_relative './initializers/initialize_games'
+require_relative './initializers/initialize_music_albums'
+require_relative './classes/label'
+require_relative './classes/source'
+require_relative './classes/author'
+require_relative './classes/genre'
+require_relative './classes/book'
+require_relative './classes/game'
+require_relative './classes/movie'
+require_relative './classes/music_album'
 require 'json'
 
 puts
@@ -24,45 +32,45 @@ puts 'Welcome to Catalog App!'
 # rubocop:disable Metrics/MethodLength
 def main
   begin
-    books_file = File.read('./books.json')
+    books_file = File.read('./data/books.json')
     @books = JSON.parse(books_file)
   rescue StandardError
-    File.write('./books.json', JSON.dump([]))
-    books_file = File.read('./books.json')
+    File.write('./data/books.json', JSON.dump([]))
+    books_file = File.read('./data/books.json')
     @books = JSON.parse(books_file)
   end
   begin
-    music_album_file = File.read('./music_album.json')
+    music_album_file = File.read('./data/music_album.json')
     @music_album = JSON.parse(music_album_file)
   rescue StandardError
-    File.write('./music_album.json', JSON.dump([]))
-    music_album_file = File.read('./music_album.json')
+    File.write('./data/music_album.json', JSON.dump([]))
+    music_album_file = File.read('./data/music_album.json')
     @music_album = JSON.parse(music_album_file)
   end
   begin
-    movies_file = File.read('./movies.json')
+    movies_file = File.read('./data/movies.json')
     @movies = JSON.parse(movies_file)
   rescue StandardError
-    File.write('./movies.json', JSON.dump([]))
-    movies_file = File.read('./movies.json')
+    File.write('./data/movies.json', JSON.dump([]))
+    movies_file = File.read('./data/movies.json')
     @movies = JSON.parse(movies_file)
   end
   begin
-    games_file = File.read('./games.json')
+    games_file = File.read('./data/games.json')
     @games = JSON.parse(games_file)
   rescue StandardError
-    File.write('./games.json', JSON.dump([]))
-    games_file = File.read('./games.json')
+    File.write('./data/games.json', JSON.dump([]))
+    games_file = File.read('./data/games.json')
     @games = JSON.parse(games_file)
   end
   @all_genres = {}
   @all_authors = {}
   @all_labels = {}
   @all_sources = {}
-  initialize_books(@books, @all_genres, @all_authors, @all_labels, @all_sources)
-  initialize_music_albums(@music_album, @all_genres, @all_authors, @all_labels, @all_sources)
-  initialize_movies(@movies, @all_genres, @all_authors, @all_labels, @all_sources)
-  initialize_games(@games, @all_genres, @all_authors, @all_labels, @all_sources)
+  initialize_books()
+  initialize_music_albums()
+  initialize_movies()
+  initialize_games()
   input = ''
 
   while input.to_i != 13
@@ -103,18 +111,18 @@ def main
     when '8'
       list_sources(@all_sources)
     when '9'
-      create_book(@books, @all_genres, @all_authors, @all_labels, @all_sources)
+      create_book()
     when '10'
-      create_music_album(@music_album, @all_genres, @all_authors, @all_labels, @all_sources)
+      create_music_album()
     when '11'
-      create_movie(@movies, @all_genres, @all_authors, @all_labels, @all_sources)
+      create_movie()
     when '12'
-      create_game(@games, @all_genres, @all_authors, @all_labels, @all_sources)
+      create_game()
     when '13'
-      File.write('./books.json', JSON.dump(@books))
-      File.write('./music_album.json', JSON.dump(@music_album))
-      File.write('./movies.json', JSON.dump(@movies))
-      File.write('./games.json', JSON.dump(@games))
+      File.write('./data/books.json', JSON.dump(@books))
+      File.write('./data/music_album.json', JSON.dump(@music_album))
+      File.write('./data/movies.json', JSON.dump(@movies))
+      File.write('./data/games.json', JSON.dump(@games))
       puts 'Thanks for using this app'
     else
       puts 'This option is not available'

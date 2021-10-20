@@ -1,10 +1,4 @@
-require_relative './source'
-require_relative './label'
-require_relative './movie'
-
-def create_movie(_movies, _all_genres, _all_authors, _all_labels, _all_sources)
-  # option_header('Add a book')
-
+def create_movie()
   # Label
   print 'Label title (e.g. new or gift): '
   movie_label_title = gets.chomp

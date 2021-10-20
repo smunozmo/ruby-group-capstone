@@ -1,4 +1,4 @@
-require_relative '../movie'
+require_relative '../classes/movie'
 
 describe Movie do
   context 'Movie tests' do

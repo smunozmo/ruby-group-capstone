@@ -1,5 +1,5 @@
-require_relative '../game'
-require_relative '../author'
+require_relative '../classes/game'
+require_relative '../classes/author'
 
 describe Game do
   context 'when use add_item method' do
