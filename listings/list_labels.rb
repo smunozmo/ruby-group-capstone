@@ -1,7 +1,10 @@
 def list_labels(all_labels)
-  puts " LABELS ".center(IO.console.winsize[1], '-')
+  puts
+  puts ' LABELS '.center(IO.console.winsize[1], '-').yellow
+  puts 'Not found'.red if all_labels.length.zero?
   all_labels.each do |_key, value|
-    puts value.title.to_s
+    puts value.title.to_s.green
   end
-  puts "-"*IO.console.winsize[1]
+  puts '-'.yellow * IO.console.winsize[1]
+  puts
 end

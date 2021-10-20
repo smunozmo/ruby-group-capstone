@@ -23,11 +23,13 @@ require_relative './classes/book'
 require_relative './classes/game'
 require_relative './classes/movie'
 require_relative './classes/music_album'
+require_relative './colorize/colorize'
+require_relative './colorize/thankyou'
 require 'json'
 require 'io/console'
 
 puts
-puts 'Welcome to Catalog App!'
+puts 'Welcome to Catalog App!'.green
 
 # rubocop:disable Metrics/CyclomaticComplexity
 # rubocop:disable Metrics/MethodLength
@@ -76,22 +78,23 @@ def main
 
   while input.to_i != 13
     puts
-    puts 'Please choose an option by entering a number:'
-    puts ' 1 - List all books'
-    puts ' 2 - List all music albums'
-    puts ' 3 - List all movies'
-    puts ' 4 - List all games'
-    puts ' 5 - List all genres (e.g \'Comedy\', \'Thriller\')'
-    puts ' 6 - List all labels (e.g. \'Gift\', \'New\')'
-    puts ' 7 - List all authors (e.g. \'Stephen King\')'
-    puts ' 8 - List all sources (e.g. \'From a friend\', \'Online shop\')'
-    puts ' 9 - Add a book'
-    puts '10 - Add a music album'
-    puts '11 - Add a movie'
-    puts '12 - Add a game'
-    puts '13 - Exit'
+    puts 'Please choose an option by entering a number:'.yellow
     puts
-    print 'Option: '
+    puts ' 1 - List all books'.blue
+    puts ' 2 - List all music albums'.blue
+    puts ' 3 - List all movies'.blue
+    puts ' 4 - List all games'.blue
+    puts ' 5 - List all genres (e.g \'Comedy\', \'Thriller\')'.light_blue
+    puts ' 6 - List all labels (e.g. \'Gift\', \'New\')'.light_blue
+    puts ' 7 - List all authors (e.g. \'Stephen King\')'.light_blue
+    puts ' 8 - List all sources (e.g. \'From a friend\', \'Online shop\')'.light_blue
+    puts ' 9 - Add a book'.pink
+    puts '10 - Add a music album'.pink
+    puts '11 - Add a movie'.pink
+    puts '12 - Add a game'.pink
+    puts '13 - Exit'.red
+    puts
+    print 'Option: '.yellow
     input = gets.chomp
 
     case input
@@ -124,12 +127,12 @@ def main
       File.write('./data/music_album.json', JSON.dump(@music_album))
       File.write('./data/movies.json', JSON.dump(@movies))
       File.write('./data/games.json', JSON.dump(@games))
-      puts 'Thanks for using this app'
+      thankyou
     else
       puts 'This option is not available'
     end
     if input.to_i >= 1 && input.to_i <= 8
-      puts "Press any key to contine..."
+      puts 'Press any key to contine...'
       STDIN.getch
     end
   end

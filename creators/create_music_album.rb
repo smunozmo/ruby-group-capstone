@@ -47,4 +47,5 @@ def create_music_album()
                           'genre_name' => new_music_album.genre.name, 'author_first_name' => new_music_album.author.first_name, 'author_last_name' => new_music_album.author.last_name, 'source_name' => new_music_album.source.name,
                           'label_title' => new_music_album.label.title, 'label_color' => new_music_album.label.color, 'item_publish_date' => new_music_album.publish_date, 'item_move_to_archive' => new_music_album.move_to_archive }
   @music_album.push(music_album_to_save)
+  puts "\nSuccess!\n".green
 end

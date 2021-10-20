@@ -48,4 +48,5 @@ def create_book()
                    'genre_name' => new_book.genre.name, 'author_first_name' => new_book.author.first_name, 'author_last_name' => new_book.author.last_name, 'source_name' => new_book.source.name,
                    'label_title' => new_book.label.title, 'label_color' => new_book.label.color, 'item_publish_date' => new_book.publish_date, 'item_move_to_archive' => new_book.move_to_archive }
   @books.push(book_to_save)
+  puts "\nSuccess!\n".green
 end
