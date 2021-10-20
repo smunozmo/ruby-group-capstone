@@ -1,31 +1,31 @@
 def create_music_album()
   # Label
   print 'Label title (e.g. new or gift): '
-  music_album_label_title = gets.chomp
+  music_album_label_title = gets.chomp.downcase
   print 'Label color (e.g. blue or yellow): '
-  music_album_label_color = gets.chomp
+  music_album_label_color = gets.chomp.downcase
 
   # Genre
   print 'Genre: '
-  music_album_genre = gets.chomp
+  music_album_genre = gets.chomp.downcase
 
   # Source
   print 'Source (e.g. from a friend or online shop): '
-  music_album_source = gets.chomp
+  music_album_source = gets.chomp.downcase
 
   # Author
   print 'Author - First Name: '
-  author_first_name = gets.chomp
+  author_first_name = gets.chomp.downcase
   print 'Author - Last Name: '
-  author_last_name = gets.chomp
+  author_last_name = gets.chomp.downcase
 
   # Music Album Data
   print 'Publish date (Format: YYYY-MM-DD): '
-  music_album_publish_date = gets.chomp
+  music_album_publish_date = gets.chomp.downcase
   print 'On Spotify (yes or no): '
-  music_album_on_spotify = gets.chomp
+  music_album_on_spotify = gets.chomp.downcase
   music_album_on_spotify_boolean = true
-  !music_album_on_spotify_boolean if music_album_on_spotify.downcase == 'no'
+  music_album_on_spotify_boolean = false if music_album_on_spotify.downcase == 'no'
 
   @all_labels["#{music_album_label_title.downcase}_#{music_album_label_color.downcase}"] = Label.new(music_album_label_title.downcase, music_album_label_color.downcase) if @all_labels["#{music_album_label_title.downcase}_#{music_album_label_color.downcase}"].nil?
   @all_genres[music_album_genre] = Genre.new(music_album_genre)

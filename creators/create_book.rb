@@ -1,31 +1,31 @@
 def create_book()
   # Label
   print 'Label title (e.g. new or gift): '
-  book_label_title = gets.chomp
+  book_label_title = gets.chomp.downcase
   print 'Label color (e.g. blue or yellow): '
-  book_label_color = gets.chomp
+  book_label_color = gets.chomp.downcase
 
   # Genre
   print 'Genre: '
-  book_genre = gets.chomp
+  book_genre = gets.chomp.downcase
 
   # Source
   print 'Source (e.g. from a friend or online shop): '
-  book_source = gets.chomp
+  book_source = gets.chomp.downcase
 
   # Author
   print 'Author - First Name: '
-  author_first_name = gets.chomp
+  author_first_name = gets.chomp.downcase
   print 'Author - Last Name: '
-  author_last_name = gets.chomp
+  author_last_name = gets.chomp.downcase
 
   # Book Data
   print 'Publish date (Format: YYYY-MM-DD): '
-  book_publish_date = gets.chomp
+  book_publish_date = gets.chomp.downcase
   print 'Publisher: '
-  book_publisher = gets.chomp
+  book_publisher = gets.chomp.downcase
   print 'Cover state (e.g. good or bad): '
-  book_cover_state = gets.chomp
+  book_cover_state = gets.chomp.downcase
 
   @all_labels["#{book_label_title.downcase}_#{book_label_color.downcase}"] = Label.new(book_label_title.downcase, book_label_color.downcase) if @all_labels["#{book_label_title.downcase}_#{book_label_color.downcase}"].nil?
   @all_authors["#{author_first_name.downcase}_#{author_last_name.downcase}"] = Author.new(author_first_name.downcase, author_last_name.downcase) if @all_authors["#{author_first_name.downcase}_#{author_last_name.downcase}"].nil?

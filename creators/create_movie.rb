@@ -1,31 +1,31 @@
 def create_movie()
   # Label
   print 'Label title (e.g. new or gift): '
-  movie_label_title = gets.chomp
+  movie_label_title = gets.chomp.downcase
   print 'Label color (e.g. blue or yellow): '
-  movie_label_color = gets.chomp
+  movie_label_color = gets.chomp.downcase
 
   # Genre
   print 'Genre: '
-  movie_genre = gets.chomp
+  movie_genre = gets.chomp.downcase
 
   # Source
   print 'Source (e.g. from a friend or online shop): '
-  movie_source = gets.chomp
+  movie_source = gets.chomp.downcase
 
   # Author
   print 'Author - First Name: '
-  author_first_name = gets.chomp
+  author_first_name = gets.chomp.downcase
   print 'Author - Last Name: '
-  author_last_name = gets.chomp
+  author_last_name = gets.chomp.downcase
 
   # Movie Data
   print 'Publish date (Format: YYYY-MM-DD): '
-  movie_publish_date = gets.chomp
+  movie_publish_date = gets.chomp.downcase
   print 'Silent: (e.g. yes or no): '
-  movie_silent = gets.chomp
+  movie_silent = gets.chomp.downcase
   movie_silent_boolean = true
-  !movie_silent_boolean if movie_silent.downcase == 'no'
+  movie_silent_boolean = false if movie_silent.downcase == 'no'
 
   @all_labels["#{movie_label_title.downcase}_#{movie_label_color.downcase}"] = Label.new(movie_label_title.downcase, movie_label_color.downcase) if @all_labels["#{movie_label_title.downcase}_#{movie_label_color.downcase}"].nil?
   @all_authors["#{author_first_name.downcase}_#{author_last_name.downcase}"] = Author.new(author_first_name.downcase, author_last_name.downcase) if @all_authors["#{author_first_name.downcase}_#{author_last_name.downcase}"].nil?
@@ -47,4 +47,5 @@ def create_movie()
                     'source_name' => new_movie.source.name, 'label_title' => new_movie.label.title, 'label_color' => new_movie.label.color, 'item_publish_date' => new_movie.publish_date,
                     'item_move_to_archive' => new_movie.move_to_archive }
   @movies.push(movie_to_save)
+  puts "\nSuccess!\n".green
 end
