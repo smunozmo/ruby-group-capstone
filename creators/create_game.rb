@@ -1,33 +1,33 @@
 def create_game()
   # Label
   print 'Label title (e.g. new or gift): '
-  game_label_title = gets.chomp
+  game_label_title = gets.chomp.downcase
   print 'Label color (e.g. blue or yellow): '
-  game_label_color = gets.chomp
+  game_label_color = gets.chomp.downcase
 
   # Genre
   print 'Genre: '
-  game_genre = gets.chomp
+  game_genre = gets.chomp.downcase
 
   # Source
   print 'Source (e.g. from a friend or online shop): '
-  game_source = gets.chomp
+  game_source = gets.chomp.downcase
 
   # Author
   print 'Author - First Name: '
-  author_first_name = gets.chomp
+  author_first_name = gets.chomp.downcase
   print 'Author - Last Name: '
-  author_last_name = gets.chomp
+  author_last_name = gets.chomp.downcase
 
   # Game Data
   print 'Multiplayer (e.g. yes or no): '
-  game_multiplayer = gets.chomp
+  game_multiplayer = gets.chomp.downcase
   print 'Game publish date: (Format: YYYY-MM-DD): '
-  game_publish_date = gets.chomp
+  game_publish_date = gets.chomp.downcase
   print 'Last played at: (Format: YYYY-MM-DD): '
-  game_last_played_at = gets.chomp
+  game_last_played_at = gets.chomp.downcase
   game_multiplayer_boolean = true
-  !game_multiplayer_boolean if game_multiplayer.downcase == 'no'
+  game_multiplayer_boolean = false if game_multiplayer.downcase == 'no'
 
   @all_labels["#{game_label_title.downcase}_#{game_label_color.downcase}"] = Label.new(game_label_title.downcase, game_label_color.downcase) if @all_labels["#{game_label_title.downcase}_#{game_label_color.downcase}"].nil?
 
@@ -50,4 +50,5 @@ def create_game()
                    'source_name' => new_game.source.name, 'game_multiplayer' => new_game.multiplayer, 'label_title' => new_game.label.title, 'label_color' => new_game.label.color, 'item_publish_date' => new_game.publish_date,
                    'item_move_to_archive' => new_game.move_to_archive }
   @games.push(game_to_save)
+  puts "\nSuccess!\n".green
 end

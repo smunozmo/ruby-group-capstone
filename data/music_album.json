@@ -1,1 +1,1 @@
-[]
+[{"json_class":"MusicAlbum","music_album_on_spotify":false,"genre_name":"jazz","author_first_name":"java","author_last_name":"jazzy","source_name":"from a friend","label_title":"new","label_color":"yellow","item_publish_date":"2018-08-01","item_move_to_archive":false},{"json_class":"MusicAlbum","music_album_on_spotify":true,"genre_name":"hip hop","author_first_name":"react","author_last_name":"dj","source_name":"online shop","label_title":"gift","label_color":"red","item_publish_date":"2010-04-10","item_move_to_archive":true}]

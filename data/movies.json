@@ -1,1 +1,1 @@
-[]
+[{"json_class":"Movie","movie_silent":false,"genre_name":"comedy","author_first_name":"ruby","author_last_name":"nightmare","source_name":"amazon","label_title":"new","label_color":"pink","item_publish_date":"2020-01-02","item_move_to_archive":false},{"json_class":"Movie","movie_silent":true,"genre_name":"action","author_first_name":"jsx","author_last_name":"dom","source_name":"online shop","label_title":"gift","label_color":"red","item_publish_date":"2021-03-03","item_move_to_archive":true}]

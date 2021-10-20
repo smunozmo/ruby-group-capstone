@@ -1,1 +1,1 @@
-[]
+[{"json_class":"Book","book_publisher":"mybooky","book_cover_state":"good","genre_name":"drama","author_first_name":"stephen","author_last_name":"ruby","source_name":"shop","label_title":"new","label_color":"blue","item_publish_date":"2021-01-02","item_move_to_archive":false},{"json_class":"Book","book_publisher":"bookstar","book_cover_state":"bad","genre_name":"horror","author_first_name":"michael","author_last_name":"rubocop","source_name":"shop","label_title":"gift","label_color":"blue","item_publish_date":"2010-09-09","item_move_to_archive":true}]
