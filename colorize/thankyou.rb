@@ -21,7 +21,7 @@ def thankyou
 
   puts
 
-  puts '-------------------- Ruby Catalog v0.1 --------------------'.light_blue
+  puts '-------------------- Ruby Catalog v0.1 --------------------'.pink
   puts
   puts 'Created by'.blue + ' @hunter4466'.pink + ' @sevinchek'.pink + ' @smunozmo'.pink + ' @the-catalystmc'.pink
   puts
