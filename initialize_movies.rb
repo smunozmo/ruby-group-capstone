@@ -4,7 +4,7 @@ def initialize_movies(_movies, _all_genres, _all_authors, _all_labels, _all_sour
     @all_sources[b['source_name']] = Source.new(b['source_name']) if @all_sources[b['source_name']].nil?
     @all_authors["#{b['author_first_name']}_#{b['author_last_name']}"] = Author.new(b['author_first_name'], b['author_last_name']) if @all_authors["#{b['author_first_name']}_#{b['author_last_name']}"].nil?
     @all_genres[b['genre_name']] = Genre.new(b['genre_name']) if @all_genres[b['genre_name']].nil?
-    
+
     new_movie = Movie.new(b['item_publish_date'], b['movie_silent'])
 
     new_movie.label = @all_labels["#{b['label_title'].downcase}_#{b['label_color'].downcase}"]
