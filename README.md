@@ -2,6 +2,9 @@
 
 In this project, we created a console app that will help you to keep a record of different types of things you won: books, music albums, movies, and games. Everything is based on the UML class diagram presented below. The data will be stored in JSON files but we also prepared a database with tables structure analogical to our program's class structure.
 
+![image](https://user-images.githubusercontent.com/39852288/138147880-c94fca4b-3e1a-4e1c-a298-f385a17ade55.png)
+
+
 ## Built With
 
 - ![Ruby](https://img.shields.io/badge/Ruby-20232A?style=for-the-badge&logo=ruby&logoColor=61DAFB)
