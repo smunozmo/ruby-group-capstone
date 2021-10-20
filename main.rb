@@ -133,7 +133,7 @@ def main
     end
     if input.to_i >= 1 && input.to_i <= 8
       puts 'Press any key to contine...'
-      STDIN.getch
+      $stdin.getch
     end
   end
 end

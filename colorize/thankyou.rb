@@ -11,7 +11,7 @@ def thankyou
 
   lines = [line1, line2, line3, line4, line5, line6]
   lines.each do |line|
-    chars = line.split('')
+    chars = line.chars
     chars.each do |e|
       print e
       sleep(0.008)
